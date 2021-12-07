@@ -2,7 +2,7 @@ const redis_client = require('../redis_connect');
 
 
 function cacheCheck(req, res, next) {
-    const _id = req.params.id
+    const _id = req.params.id || req.query.status
     redis_client.get(_id, (err, data) => {
       if (err) {
         throw err;
@@ -16,6 +16,7 @@ function cacheCheck(req, res, next) {
           // If there is no cached data then let leave the caching to the
           // final controller function.
           console.log('Response is sent from cache with key to mongo')
+          console.log("start1");
           next();
         }
       }

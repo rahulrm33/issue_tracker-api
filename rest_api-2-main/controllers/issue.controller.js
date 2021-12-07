@@ -68,7 +68,6 @@ async function getByQuery (req, res,next){
 
 
 async function getByStatus(req, res){
-    console.log("status")
     var query = req.query.status;
     try {
         const issues = await Issue.find({status:query})
@@ -77,6 +76,7 @@ async function getByStatus(req, res){
         if(!issues){
             return res.status(404).send();
         }
+        await redis_client.set(query, JSON.stringify(issues),'EX', 60 * 60 * 24);
         res.send(issues)
     } catch (e) {
         res.status(500).send()

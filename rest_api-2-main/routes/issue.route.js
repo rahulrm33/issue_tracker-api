@@ -8,7 +8,7 @@ router.post('/issues', auth_middleware.verifyToken,issue_controller.createIssue)
 router.get('/issues', auth_middleware.verifyToken, issue_controller.getAllIssue);
 router.get('/issues/:id',auth_middleware.verifyToken,redis_middleware.cacheCheck ,issue_controller.getIssue);
 router.get('/issue', auth_middleware.verifyToken,issue_controller.getByQuery);
-router.get('/issue', auth_middleware.verifyToken,issue_controller.getByStatus)
+router.get('/issue', auth_middleware.verifyToken,redis_middleware.cacheCheck,issue_controller.getByStatus)
 router.patch('/issues/:id', auth_middleware.verifyToken,issue_controller.updateIssue);
 router.delete('/issues/:id',auth_middleware.verifyToken,issue_controller.deleteIssue);
 
