@@ -53,7 +53,7 @@ An issue tracking application based on Nodejs express-framework in back-end , Mo
 4.Update specific issue with ID:                   http://localhost:3000/v1/issue/issues/:id 
 5.Update A Issue with ID  :                        http://localhost:3000/v1/issue/issues/:id 
 6.Get Issue by Query String  :                     http://localhost:3000/v1/issue/issue?status 
-7.Get Issue by Query String for priority and phase:http://localhost:3000/v1/issue/issue?priority&phase 
+7.Get Issue by Query String for priority and phase  :http://localhost:3000/v1/issue/issue?priority&phase 
 ***
     
 
